@@ -21,6 +21,18 @@
 */
 
 //////INITILIAZER STRUCTURE
+struct Comm_functions{
+	
+  bool (*I2C_Write)(uint16_t DevAddress, uint16_t MemAddress,uint16_t MemAddSize, uint8_t *pData, uint16_t Size); 
+  bool (*I2C_Read)(uint16_t DevAddress, uint16_t MemAddress, uint16_t MemAddSize, uint8_t *pData, uint16_t Size);
+
+  bool (*GPIO_Write_High)(uint8_t pin);
+  bool (*GPIO_Write_Low)(uint8_t pin);
+
+  bool (*GPIO_Read_Pin)(uint8_t pin);
+
+};
+
 struct Init_bq25120a{
 
  uint8_t fast_charge_curr;
@@ -43,18 +55,6 @@ struct Init_bq25120a{
 
  struct Comm_functions functions;
  
-};
-
-struct Comm_functions{
-	
-  bool (*I2C_Write)(uint16_t DevAddress, uint16_t MemAddress,uint16_t MemAddSize, uint8_t *pData, uint16_t Size); 
-  bool (*I2C_Read)(uint16_t DevAddress, uint16_t MemAddress, uint16_t MemAddSize, uint8_t *pData, uint16_t Size);
-
-  bool (*GPIO_Write_High)(uint8_t pin);
-  bool (*GPIO_Write_Low)(uint8_t pin);
-
-  bool (*GPIO_Read_Pin)(uint8_t pin);
-
 };
 
 
